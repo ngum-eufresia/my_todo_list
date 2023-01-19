@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="20" viewBox="0 0 12 20">
+  <g id="sand-clock" transform="translate(-9 -3)">
+    <path id="Path_16" data-name="Path 16" d="M18.541,9H16.5v1.02a1.02,1.02,0,0,0,2.041,0Z" transform="translate(-2.52 -2.009)" fill="#11a800"/>
+    <path id="Path_17" data-name="Path 17" d="M9,3V5h1V8a5,5,0,0,0,5,5,5,5,0,0,0-5,5v3H9v2H21V21H20V18a5,5,0,0,0-5-5,5,5,0,0,0,5-5V5h1V3Zm3,2h6V8a3,3,0,1,1-6,0Zm0,13v3h6V18a3,3,0,1,0-6,0Z" transform="translate(0 0)" fill="#11a800" fill-rule="evenodd"/>
+  </g>
+</svg>

@@ -1,0 +1,63 @@
+@font-face {
+    font-family: cairo;
+    src: url('fonts-6/Cairo-Regular.ttf');
+}  
+@font-face {
+    font-family:Khand ;
+    src: url('fonts-6/Khand-Bold.ttf');
+}
+
+.fa-bell,
+.fa-circle-user{
+    font-size: 30px;
+}
+
+.search-input {
+    background: transparent;
+    border-radius: 999999px;
+    width: 449px;
+}
+.input-item{
+    border-top-left-radius: 99px;
+    border-bottom-left-radius: 99px;
+    background: transparent;
+    border-color: white;
+    border-right: none;
+
+}
+.search-icon{
+    background: transparent;
+    border-top-right-radius: 99px;
+    border-bottom-right-radius: 99px;
+    border-color: white;
+    border-left: none;
+}
+.todo-task{
+
+    background-color: #E1E1E1;
+}
+.sidebar{
+    padding-right: 23px;
+    padding-inline: 23px;
+    font-size: 23px;
+    text-decoration:none !important ;
+}
+.nav-item{
+    text-decoration: none;
+    color:black;
+   
+}
+.date-track{
+    font-size: 9px;
+  
+    
+}
+.sub-todo{
+    position: relative;
+    left: 2px;
+}
+.body{
+    background-color: #F6F6F6;
+    font-family:cairo;
+
+}
