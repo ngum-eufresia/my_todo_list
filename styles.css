@@ -38,7 +38,7 @@
 }
 .sidebar{
     /* padding-left: 23px; */
-    font-size: 15px;
+    font-size: 17px;
     text-decoration:none !important ;
 }
 .nav-item{
@@ -58,6 +58,10 @@
 .first-task{
     background-color: #EEF8FF;
 }
+.first-task :hover{
+    color: blue;
+    
+}
 
 .active{
     background-color: #E1E1E1;
@@ -67,9 +71,13 @@
 .add-todo{
     padding-top: 182px;
 }
+.add-but:hover{
+    background-color: #707070;
+}
 
 .add-but{
-margin-left: 656px;
+position: relative;  
+right: -683px;  
 width: 70px;
 height: 70px;
 border-radius: 32px;
@@ -78,8 +86,52 @@ box-shadow: 0px 3px 4px #00000029;
 opacity: 1;
 }
 
+.time-track{
+    font-size: 14px;
+}
+
+.lorem{
+    font-size:16px ;
+}
+.details{
+    height: 114px;
+
+}
+
+.details input[type="text"]{
+    padding-bottom: 78px;
+}
+
+.popup{
+display: none;
+}
+.popup-content{
+    border: none;
+    position: relative;
+    top:-487px;
+
+}
+
+.input-todo{
+    background-color: transparent;
+     background-color: #F6F6F6 !important;
+}
+.close-but{
+    border:none;
+    text-decoration: none;
+    background:transparent ;
+}
+.but-add{
+     border:none;
+    text-decoration: none;
+    background:transparent ;
+}
+
+/* .collapse{
+    line-height: 0px;
+} */
 .body{
     background-color: #F6F6F6;
     font-family:cairo;
-
+    color: #707070;
 }
