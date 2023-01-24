@@ -102,9 +102,9 @@ opacity: 1;
     padding-bottom: 78px;
 }
 
-.popup{
+/* .popup{
 display: none;
-}
+} */
 .popup-content{
     border: none;
     position: relative;
@@ -116,7 +116,7 @@ display: none;
     background-color: transparent;
      background-color: #F6F6F6 !important;
 }
-.close-but{
+.delete-but{
     border:none;
     text-decoration: none;
     background:transparent ;
@@ -130,6 +130,11 @@ display: none;
 /* .collapse{
     line-height: 0px;
 } */
+
+.delete-but :hover{
+    color:red;
+
+}
 .body{
     background-color: #F6F6F6;
     font-family:cairo;
