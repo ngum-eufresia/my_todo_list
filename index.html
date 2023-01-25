@@ -21,62 +21,7 @@
 </head>
 
 <body>
-    <div class="section body">
-
-        <!-- <nav class="navbar navbar-expand-lg bg-primary ">
-            <div class="container-fluid ">
-
-                <button class="navbar-toggler justify-content-start" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex d-lg-none">
-                    <div>
-                        <i class="fa-solid fa-magnifying-glass d-none d-md-block "></i>
-                    </div>
-                    <div class="d-grid col-5 col-sm-8 col-md-12 col-lg-12">
-                        <input class="form-control me-lg-2 pe-lg-5 ps-lg-5 search-input d-none d-md-block "
-                            type="search" placeholder="" aria-label="Search">
-                    </div>
-                    <div> <i class="fa-solid fa-circle-user ps-4"></i></div>
-                    <div><i class="fa-solid fa-bell ps-4"></i></div>
-                </div>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 me-auto mb-lg-0 align-content-end m-0 p-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Today's task</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Tomorrow</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Important</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Archived</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Completed</a>
-                        </li>
-                    </ul>
-
-                    <div class="d-lg-flex d-md-none d-lg-block">
-                        <div>
-                            <i class="fa-solid fa-magnifying-glass d-inline d-md-none d-lg-block"></i>
-                        </div>
-                        <div class="d-grid col-lg-12 ">
-                            <input class="form-control me-2 pe-lg-5 ps-lg-5 search-input d-inline d-md-none d-lg-block "
-                                type="search" placeholder="" aria-label="Search">
-                        </div>
-
-                        <div> <i class="fa-solid fa-circle-user ps-4 d-none d-lg-inline"></i></div>
-                        <div><i class="fa-solid fa-bell ps-4 d-none d-lg-block d-lg-inline"></i></div>
-                    </div>
-
-                </div>
-            </div>
-        </nav> -->
+    <div class="section todo-body">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-primary">
             <div class="container-fluid">
@@ -119,19 +64,19 @@
                         <div>
                             <div class="sidebar pt-2">
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item" href="#yesterday">Today's Task</a>
+                                    <a class="nav-item today-task" href="#yesterday" id="today">Today's Task</a>
                                 </div>
                                 <div class="p-2 active ps-4">
-                                    <a class="nav-item " href="#home">Yesterday</a>
+                                    <a class="nav-item" id="yesterday-task" href="#home">Yesterday</a>
                                 </div>
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item " href="#contact">Important</a>
+                                    <a class="nav-item" id="important-task " href="#contact">Important</a>
                                 </div>
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item " href="#about">Archived</a>
+                                    <a class="nav-item" id="archived-task" href="#about">Archived</a>
                                 </div>
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item" href="completed.html">Completed</a>
+                                    <a class="nav-item  " href="completed.html">Completed</a>
                                 </div>
                             </div>
                         </div>
@@ -193,8 +138,8 @@
                                 <img src="images/edit.svg" class="pe-3 pe-2" rel="">
                                 <img src="images/checkmark-circled.svg" rel="">
                             </div>
-                        </div>
-                      -->
+                        </div> -->
+
 
                         <div class=" d-flex justify-content-between rounded-2 mb-2 pe-3 p-1 first-task ">
                             <div class="ps-3">
@@ -212,118 +157,120 @@
                             </div>
                         </div>
                         <div class="section add-todo">
-                            <div class="add-but text-end">
+                            <div class="add-but text-center text-md-center text-lg-end">
                                 <button type="button" class="btn but-add" data-bs-toggle="modal" id="popup"
                                     data-bs-target="#exampleModal" data-bs-whatever="@mdo"><img src="images/Group 2.svg"
                                         class="pt-3 pe-3 ms-2 img-fluid" rel=""></button>
 
-                                <!-- <button class="" onclick="addFunction(event)">
+                                <!-- <button class="" onclick="addFunction(event)"> -->
 
-                                </button> -->
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12  col-md-6 col-lg-3 ps-4 date-track">
-                        <h6 class="fw-bold">DETAILS</h6>
-                        <p class=" ps-1 pe-4 lorem">Lorem ipsum dolor sit amet, consetetur sadipci elitr, sed diam
-                            nonumy
-                            eirmod tempor invidunt ut labore et dolore magna
-                            aliquyam erat, sed
+                    <div class="col-12  col-md-6 col-lg-3 ps-4 date-track" id="details">
+                        <!-- <h6 class="fw-bold">DETAILS</h6>
+                            <p class=" ps-1 pe-4 lorem">Lorem ipsum dolor sit amet, consetetur sadipci elitr, sed
+                                diam
+                                nonumy
+                                eirmod tempor invidunt ut labore et dolore magna
+                                aliquyam erat, sed
 
-                        </p>
-                        <div class="d-flex justify-content-between time-track">
-                            <div class="">
-                                <span>
+                            </p>
+                            <div class="d-flex justify-content-between time-track">
+                                <div class="">
+                                    <span>
 
-                                    <img src="images/sand-clock 1.svg" rel="">
-                                </span>
-                                MON 10-10-22
+                                        <img src="images/sand-clock 1.svg" rel="">
+                                    </span>
+                                    MON 10-10-22
 
-                            </div>
-                            <div class=" pe-5 me-3">
-                                <span>
-                                    <img src="images/sand-clock 1.svg" rel="">
-                                </span>
-                                MON 10-10-22
-                            </div>
-                        </div>
+                                </div>
+                                <div class=" pe-5 me-3">
+                                    <span>
+                                        <img src="images/sand-clock 1.svg" rel="">
+                                    </span>
+                                    MON 10-10-22
+                                </div>
+                            </div> -->
 
                     </div>
+
 
                 </div>
-            </div>
 
 
 
 
-            <!-- <div class=" ms-5 mb-5  d-flex justify-content-center"> -->
-            <!-- <div class="collapse"> -->
-            <!-- <div class="card rounded-6 popup-content px-2" style="width: 34rem"> -->
-            <!-- <button class="close-but text-end" onclick="closeFunction()">
+                <!-- <div class=" ms-5 mb-5  d-flex justify-content-center"> -->
+                <!-- <div class="collapse"> -->
+                <!-- <div class="card rounded-6 popup-content px-2" style="width: 34rem"> -->
+                <!-- <button class="close-but text-end" onclick="closeFunction()">
                         <i class="fa-solid fa-xmark pe-0"></i>
                     </button> -->
-            <!-- <h6 class="card-title text-center pt-4 fw-bold">CREATE A NEW TASK</h6> -->
-            <!-- <div class="card-body"> -->
+                <!-- <h6 class="card-title text-center pt-4 fw-bold">CREATE A NEW TASK</h6> -->
+                <!-- <div class="card-body"> -->
 
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form class="popup" onsubmit="submitForm(event)">
-                                <div class="input-group mb-2">
-                                    <input type="text" class="form-control task-input" placeholder="Task name"
-                                        aria-label="Task name" aria-describedby="basic-addon1" name="username">
-                                </div>
-                                <div class="container-fluid p-0">
-                                    <div class="row">
-                                        <div class="col-6 pe-0">
-                                            <div class="input-group mb-2">
-                                                <input type="text" class="form-control" placeholder="Start date"
-                                                    aria-label="Username" aria-describedby="basic-addon1"
-                                                    name="start_date">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="popup" onsubmit="submitForm(event)">
+                                    <div class="input-group mb-2">
+                                        <input type="text" class="form-control task-input" placeholder="Task name"
+                                            aria-label="Task name" aria-describedby="basic-addon1" name="username">
+                                    </div>
+                                    <div class="container-fluid p-0">
+                                        <div class="row">
+                                            <div class="col-6 pe-0">
+                                                <div class="input-group mb-2">
+                                                    <input type="date" class="form-control start-date"
+                                                        placeholder="Start date" aria-label="Username"
+                                                        aria-describedby="basic-addon1" name="start_date">
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-6">
-                                            <div class="input-group mb-2">
-                                                <input type="text" class="form-control" placeholder="End date"
-                                                    aria-label="Username" aria-describedby="basic-addon1"
-                                                    name="end_date">
+                                            <div class="col-6">
+                                                <div class="input-group mb-2">
+                                                    <input type="date" class="form-control end-date"
+                                                        placeholder="End date" aria-label="Username"
+                                                        aria-describedby="basic-addon1" name="end_date">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="input-group mb-2 details input-todo">
-                                    <input type="text" class="form-control" placeholder="Details" aria-label="Details"
-                                        aria-describedby="basic-addon1" name="details">
-                                </div>
-                                <div class=" text-center pt-4 pb-4">
-                                    <button class="btn btn-primary px-5" type="submit" id="submit-new-task">CREATE
-                                        TASK</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <div class="input-group mb-2 detail input-todo">
+                                        <input type="text" class="form-control detail" placeholder="Details"
+                                            aria-label="Details" aria-describedby="basic-addon1" name="details">
+                                    </div>
+                                    <div class=" text-center pt-4 pb-4">
+                                        <button class="btn btn-primary px-5" type="submit" id="submit-new-task">CREATE
+                                            TASK</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary">Send message</button> -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-        <!-- </div>
+            <!-- </div>
             </div>
         </div> -->
-    </div>
+        </div>
 </body>
 
 </html>

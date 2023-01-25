@@ -93,12 +93,12 @@ opacity: 1;
 .lorem{
     font-size:16px ;
 }
-.details{
+.detail{
     height: 114px;
 
 }
 
-.details input[type="text"]{
+.detail input[type="text"]{
     padding-bottom: 78px;
 }
 
@@ -135,8 +135,24 @@ display: none;
     color:red;
 
 }
-.body{
+.todo-body{
     background-color: #F6F6F6;
     font-family:cairo;
     color: #707070;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .add-but{
+        position: relative;
+        right:   -155px;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {...} */
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {...} */
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {...} */
+/* Extra large devices (zlarge laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {...} */
