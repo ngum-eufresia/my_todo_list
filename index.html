@@ -11,13 +11,15 @@
     <link href="boostrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- boostrap javascript -->
     <script src="boostrap/js/bootstrap.min.js"></script>
+    <script src="boostrap/js/bootstrap.jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
 
     <!-- font awesome -->
     <link href="fonts-6/css/all.css" rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
-    <script src="index.js"></script>
+    <script src="index.js" defer></script>
 </head>
 
 <body>
@@ -61,28 +63,88 @@
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3 p-0">
 
-                        <div>
-                            <div class="sidebar pt-2">
+                        <nav>
+                            <div class="sidebar pt-2 nav-tabs nav-fill " id="nav-tab" role="tablist">
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item today-task" href="#yesterday" id="today">Today's Task</a>
+                                    <a class="nav-item today-task" content-id="today-task"
+                                        onclick="switchActiveClass(event)">Today's Task</a>
                                 </div>
-                                <div class="p-2 active ps-4">
-                                    <a class="nav-item" id="yesterday-task" href="#home">Yesterday</a>
-                                </div>
-                                <div class="p-2 ps-4">
-                                    <a class="nav-item" id="important-task " href="#contact">Important</a>
-                                </div>
-                                <div class="p-2 ps-4">
-                                    <a class="nav-item" id="archived-task" href="#about">Archived</a>
+                                <div class="p-2  ps-4">
+                                    <a class="nav-item active" content-id="yesterday-task"
+                                        onclick="switchActiveClass(event)">Yesterday</a>
                                 </div>
                                 <div class="p-2 ps-4">
-                                    <a class="nav-item  " href="completed.html">Completed</a>
+                                    <a class="nav-item" href="#important-task" content-id="important-task"
+                                        onclick="switchActiveClass(event)">Important</a>
+                                </div>
+                                <div class="p-2 ps-4">
+                                    <a class="nav-item" href="#archived-task" content-id="archived-task"
+                                        onclick="switchActiveClass(event)">Archived</a>
+                                </div>
+                                <div class="p-2 ps-4">
+                                    <a class="nav-item" href="completed.task" content-id="completed-task"
+                                        onclick="switchActiveClass(event)">Completed</a>
                                 </div>
                             </div>
-                        </div>
+                        </nav>
+
                     </div>
-                    <div class="col-12  col-md-6 col-lg-6 todo-task p-3">
-                        <div class="task flex-column">
+
+                    <div class="col-12  col-md-6 col-lg-6 todo-task">
+                        <div class="flex-column">
+                            <div class="tab-content" id="nav-tabcontent">
+                                <div class="tab-pane fade show active task" id="yesterday-task" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    <div class="d-flex justify-content-between rounded-3 bg-light mb-2 ms-5 pe-3">
+                                        <div class="ps-3">
+                                            <p class="pt-2">Task to do inthe near future</p>
+
+                                        </div>
+                                        <div class="">
+                                            <img src="images/arrow-long-right-c.svg" class="pe-3 pe-2 pt-3" rel="">
+
+                                            <img src="images/delete.svg" class="pe-3 pe-2 pt-3" rel="">
+
+                                            <img src="images/edit.svg" class="pe-3 pe-2 pt-2" rel="">
+                                            <img src="images/checkmark-circled.svg" class="pt-2" rel="">
+                                        </div>
+                                    </div>
+                                    <div class=" d-flex justify-content-between rounded-2 mb-2 pe-3 p-1 first-task ">
+                                        <div class="ps-3">
+                                            <p class="">Task to do inthe near future</p>
+
+                                        </div>
+                                        <div class="">
+                                            <img src="images/arrow-long-right-c.svg" class="pe-3 pe-2" rel="">
+                                            <img src="images/delete.svg" class="pe-3 pe-2" rel="">
+
+
+                                            <img src="images/edit.svg" class="pe-3 pe-2" rel="">
+
+                                            <img src="images/checkmark-circled.svg" rel="">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="today-task" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    Welcome to todays task
+                                </div>
+
+                                <div class="tab-pane fade" id="important-task" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    Welcome to important task
+                                </div>
+                                <div class="tab-pane fade" id="archived-task" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                                    Welcome to archived task
+                                </div>
+                                <div class="tab-pane fade" id="completed-task" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">
+                        
+                                </div>
+
+                            </div>
                             <!-- <div class=" d-flex justify-content-between rounded-2 mb-2 pe-3 first-task "> -->
                             <!-- <div class="ps-3">
                                     <p class="pt-2">Task to do inthe near future</p>
@@ -101,61 +163,7 @@
 
 
 
-                        <div class="task d-flex justify-content-between rounded-3 bg-light mb-2 ms-5 pe-3">
-                            <div class="ps-3">
-                                <p class="pt-2">Task to do inthe near future</p>
 
-                            </div>
-                            <div class="">
-                                <img src="images/arrow-long-right-c.svg" class="pe-3 pe-2 pt-3" rel="">
-
-                                <img src="images/delete.svg" class="pe-3 pe-2 pt-3" rel="">
-
-                                <img src="images/edit.svg" class="pe-3 pe-2 pt-2" rel="">
-                                <img src="images/checkmark-circled.svg" class="pt-2" rel="">
-                            </div>
-                        </div>
-                        <!-- <div class=" d-flex justify-content-between rounded-3 bg-light mb-2 ms-5 pe-2">
-                            <div class="ps-3">
-                                <p class="pt-2">Task to do inthe near future</p>
-
-                            </div>
-                            <div class="">
-                                <img src="images/arrow-long-right-c.svg" class="pe-3 pt-2" rel="">
-                                <img src="images/delete.svg" class="pe-3 pt-2" rel="">
-                                <img src="images/edit.svg" class="pe-3 pt-2" rel="">
-                                <img src="images/checkmark-circled.svg" class="pt-2" rel="">
-                            </div>
-                        </div>
-                        <div class=" d-flex justify-content-between rounded-3 bg-light mb-2 ms-5 pe-3">
-                            <div class="ps-3">
-                                <p class="pt-2">Task to do inthe near future</p>
-
-                            </div>
-                            <div class="">
-                                <img src="images/arrow-long-right-c.svg" class="pe-3 pe-2" rel="">
-                                <img src="images/delete.svg" class="pe-3 pe-2" rel="">
-                                <img src="images/edit.svg" class="pe-3 pe-2" rel="">
-                                <img src="images/checkmark-circled.svg" rel="">
-                            </div>
-                        </div> -->
-
-
-                        <div class=" d-flex justify-content-between rounded-2 mb-2 pe-3 p-1 first-task ">
-                            <div class="ps-3">
-                                <p class="">Task to do inthe near future</p>
-
-                            </div>
-                            <div class="">
-                                <img src="images/arrow-long-right-c.svg" class="pe-3 pe-2" rel="">
-                                <img src="images/delete.svg" class="pe-3 pe-2" rel="">
-
-
-                                <img src="images/edit.svg" class="pe-3 pe-2" rel="">
-
-                                <img src="images/checkmark-circled.svg" rel="">
-                            </div>
-                        </div>
                         <div class="section add-todo">
                             <div class="add-but text-center text-md-center text-lg-end">
                                 <button type="button" class="btn but-add" data-bs-toggle="modal" id="popup"
@@ -199,25 +207,12 @@
 
                 </div>
 
-
-
-
-                <!-- <div class=" ms-5 mb-5  d-flex justify-content-center"> -->
-                <!-- <div class="collapse"> -->
-                <!-- <div class="card rounded-6 popup-content px-2" style="width: 34rem"> -->
-                <!-- <button class="close-but text-end" onclick="closeFunction()">
-                        <i class="fa-solid fa-xmark pe-0"></i>
-                    </button> -->
-                <!-- <h6 class="card-title text-center pt-4 fw-bold">CREATE A NEW TASK</h6> -->
-                <!-- <div class="card-body"> -->
-
-
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <h6 class="modal-title text-center" id="exampleModalLabel">CREATE A NEW TASK</h6>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -247,7 +242,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="input-group mb-2 detail input-todo">
+                                    <div class="input-group mb-2 my-detail input-todo">
                                         <input type="text" class="form-control detail" placeholder="Details"
                                             aria-label="Details" aria-describedby="basic-addon1" name="details">
                                     </div>
@@ -258,19 +253,15 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Send message</button> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <!-- </div>
-            </div>
-        </div> -->
         </div>
+    </div>
+
+
 </body>
 
 </html>

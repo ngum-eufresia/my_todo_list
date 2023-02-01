@@ -62,10 +62,17 @@
     color: blue;
     
 }
+.myTask{
+   background-color: #EEF8FF;  
+   border-radius: 7p;
+}
 
 .active{
     background-color: #E1E1E1;
 
+}
+.actions{
+    padding-top: 4px;
 }
 
 .add-todo{
@@ -98,7 +105,7 @@ opacity: 1;
 
 }
 
-.detail input[type="text"]{
+.my-detail input[type="text"]{
     padding-bottom: 78px;
 }
 
@@ -112,10 +119,10 @@ display: none;
 
 }
 
-.input-todo{
+/* .input-todo{
     background-color: transparent;
      background-color: #F6F6F6 !important;
-}
+} */
 .delete-but{
     border:none;
     text-decoration: none;
@@ -126,6 +133,7 @@ display: none;
     text-decoration: none;
     background:transparent ;
 }
+
 
 /* .collapse{
     line-height: 0px;

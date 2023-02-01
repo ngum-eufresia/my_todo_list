@@ -9,8 +9,6 @@ let myId = 0;
 // console.log(todayTask);
 // console.log(completedTask);
 
-function submitForm(e){
-e.preventDefault();
 
 const  submitBut = document.querySelector('#submit-new-task')
 const  taskInput = document.querySelector(".task-input")
@@ -21,74 +19,67 @@ const startDate = document.querySelector(".start-date");
 console.log(startDate)
 const endDate = document.querySelector(".end-date");
 const detail = document.querySelector(".detail");
-
-
-
-// adding todo task
 const todayTask = document.getElementById("today");
 const yesterdayTask = document.getElementById("yesterday-task");
 const importantTask = document.getElementById("important-task");
 const archiveTask = document.getElementById("archive-task");
 const completedTask = document.getElementById("completed-task");
-console.log(todayTask);
-console.log(completedTask);
-
-console.log(submitBut);
-
-console.log(taskInput);
-
-const addInputContent = taskInput.value;
-    if(addInputContent==""){
-      alert("please add a task");
-    }
+let presentStartDate;
+let presentInput;
+let presentEndDate;
+let  presentdetail
+let checkbox = document.createElement("img")
+let edit = document.createElement("img")
+let subtodo = document.createElement("img")
+let  delet = document.createElement("img")
 
 
-// if(addInputContent.trim()!=0){
-//     let webtask = localStorage.getItem("localtask");
-//     if(webtask == null){
-//         taskObj = [];
-//     }
-//     else{
-//         taskObj = JSON.parse(webtask);
-//     }
-//     taskObj.push({'task_name':addInputContent, 'completeStatus':false});
-//     // console.log(taskObj, 'Ashendra');
-//     localStorage.setItem("localtask", JSON.stringify(taskObj));
-//     addtaskinput.value = '';
-// }
- 
-   const task= document.createElement("div")
-   task.classList.add("task","d-flex","justify-content-between","mb-2", "rounded-2", "pe-3", "bg-light");
-   const paddi= document.createElement("div")
-   paddi.classList.add("ps-3")
-   
 
-   const paragraph=document.createElement("p");
-   paragraph.classList.add("pt-2");
-   paragraph.textContent=addInputContent;
-   const presentInput = addInputContent;
-   console.log("my-present input")
-   console.log(presentInput);
-   console.log(addInputContent);
-   paddi.appendChild(paragraph);
-   task.appendChild(paddi);
-   console.log("paragraph before editing")
-   
+const todos = JSON.parse(localStorage.getItem("todos")) || []
+const addMyTodo = (name, myStartDate, myEndDate, todoDetail) =>{
+    todos.push({
+        name,
+       myStartDate,
+        myEndDate,
+        todoDetail,
+    });
+localStorage.setItem("todos", JSON.stringify(todos));
+return {name, myStartDate, myEndDate, todoDetail}
+}
 
+const students = JSON.parse(localStorage.getItem("students")) || [];
+
+const addStudent = (name, age, roll) => {
+  students.push({
+    name,
+    age,
+    roll,
+  });
+
+  localStorage.setItem("students", JSON.stringify(students));
+
+  return { name, age, roll };
+};
+  
+c
+
+
+
+function todoActions(task){
    const todoFunctions= document.createElement("div");
+   todoFunctions.classList.add("actions")
 
-   const subtodo = document.createElement("img")
+   
    subtodo.setAttribute( "src", "images/arrow-long-right-c.svg");
    subtodo.classList.add("pe-3","pt-2");
-   const delet = document.createElement("img")
+   
    delet.src ="images/delete.svg";
    delet.classList.add("pe-3","pt-2", "delete-but", "hover-overlay")
   
-   const edit = document.createElement("img")
-   edit.setAttribute("src", "images/edit.svg");
-    edit.classList.add("pe-3","pt-2")
 
-   const checkbox = document.createElement("img")
+   edit.setAttribute("src", "images/edit.svg");
+   edit.classList.add("pe-3","pt-2")
+
    checkbox.setAttribute("src", "images/checkmark-circled.svg");
    checkbox.classList.add("pe-1" ,"pt-2")
    
@@ -96,69 +87,79 @@ const addInputContent = taskInput.value;
    todoFunctions.appendChild(delet);
    todoFunctions.appendChild(edit);
    todoFunctions.appendChild(checkbox);
-
    task.appendChild(todoFunctions);
-   task.id += 1;
-
-   tasks.appendChild(task)
    
+}
+
+
+ function addTodo(addInputContent){   
+   let task= document.createElement("div")
+   task.classList.add("myTask","d-flex","justify-content-between","mb-2", "rounded-2", "pe-3");
+   const paddi= document.createElement("div")
+   paddi.classList.add("ps-3", "myTask")
+   const paragraph=document.createElement("p");
+   paragraph.classList.add("pt-2");
+   paragraph.textContent=addInputContent;
+   presentInput = addInputContent;
+   paddi.appendChild(paragraph);
+   task.appendChild(paddi);
+
+  todoActions(task)
+   tasks.appendChild(task)
    taskInput.value = "";    
    addInputContent.value = "";
-   
-   console.log(task);
-   console.log(tasks);
-   console.log("I am picking you up");
-   console.log(addInputContent);
+}
 
+    // adding date and details
 
-//    adding date and details
-   const startDateContent = startDate.value;
-   const endDateContent = endDate.value;
-   const detailContent = detail.value;
-    
-   const cars = ["startDateContent", "endDateContent", "detailContent"];
-   cars.forEach(element => {
-    if (element == ""){
-        alert("please add an input")
-        return;
-    }
-    
-   });
-   
+function addDetails(startDateContent, endDateContent, detailContent ){
+
     const myDetails = document.createElement("div")
-    myDetails.classList.add("pb-3", "fs-5")
-    const myDetail = document.createElement("paragraph")
-    myDetail.classList.add= ("fw-bold ");
+    const myDetail = document.createElement("p")
+    myDetail.classList.add("mb-2", "fs-6", "fw-bold");
     myDetail.innerHTML= ("DETAILS")
     myDetails.appendChild(myDetail);
 
-    const lorem = document.createElement("paragraph")
-    lorem.classList.add= ("ps-1", "pe-4", "fs-4")
-    lorem.textContent = detailContent;
-    const presentdetail = detailContent;
-
+    const detailText  = document.createElement("p")
+    detailText.classList.add("mb-2", "pe-4", "fs-6")
+    detailText.textContent = detailContent;
+     presentdetail = detailContent;
+  
     const divDate = document.createElement("div");
     divDate.classList.add("time-track","d-flex","justify-content-between");
     
     const start = document.createElement("div");
     const startDateSpan = document.createElement("span");
-    startDateSpan.textContent = startDateContent;
-    const presentStartDate = startDateContent;
+    startDateSpan.classList.add("pe-2")
+    const dateText = document.createElement("span");
+    const clock = document.createElement("img");
+    clock.src ="images/sand-clock 1.svg"
+    startDateSpan.appendChild(clock);
+    dateText.textContent = startDateContent;
+    presentStartDate = startDateContent;
 
     start.appendChild(startDateSpan);
+    start.appendChild(dateText);
 
     const end = document.createElement("div");
     const endDateSpan = document.createElement("span")
-    endDateSpan.classList.add("pe-5", "me-5")
-    endDateSpan.textContent = endDateContent;
-    const presentEndDate = endDateContent;
-    end.appendChild(endDateSpan);
+    const endDateText = document.createElement("span")    
+    endDateSpan.classList.add("pe-2")
+    const newClock = document.createElement("img");
+    newClock.src ="images/sand-clock 1.svg"
+    endDateSpan.appendChild(newClock);
+    end.classList.add("pe-5", "me-5")
+    endDateText.textContent = endDateContent;
+     presentEndDate = endDateContent;
 
-    divDate.appendChild(start);
-    divDate.appendChild(end);
+    end.appendChild(endDateSpan);
+    end.appendChild(endDateText);
     
-    details.appendChild(myDetails)   
-    details.appendChild(lorem)
+    divDate.appendChild(start); 
+    divDate.appendChild(end);
+
+    details.appendChild(myDetails)
+    details.appendChild(detailText)
     details.appendChild(divDate)
 
     startDate.value = "";
@@ -167,33 +168,7 @@ const addInputContent = taskInput.value;
     endDateContent.value = ""
     detail.value = "";
     // detailContent.value="";
-    
-
-
-
-                        //     <h6 class="fw-bold">DETAILS</h6>
-                        // <p class=" ps-1 pe-4 lorem">Lorem ipsum dolor sit amet, consetetur sadipci elitr, sed diam
-                        //     nonumy
-                        //     eirmod tempor invidunt ut labore et dolore magna
-                        //     aliquyam erat, sed
-
-                        // </p>
-                        // <div class="d-flex justify-content-between time-track">
-                        //     <div class="">
-                        //         <span>
-
-                        //             <img src="images/sand-clock 1.svg" rel="">
-                        //         </span>
-                        //         MON 10-10-22
-
-                        //     </div>
-                        //     <div class=" pe-5 me-3">
-                        //         <span>
-                        //             <img src="images/sand-clock 1.svg" rel="">
-                        //         </span>
-                        //         MON 10-10-22
-                        //     </div>
-                        // </div>
+}
 
 
 
@@ -223,57 +198,54 @@ const addInputContent = taskInput.value;
             console.log(task.id);
 
         }
+    });
         //  addInputContent.replaceWith(newTask)
         //  console.log(newTask)
         //  console.log("new task");
 
     
-    });   
+    // });   
     // delete todo content 
 
-    delet.addEventListener('click', (e) => {
-			 tasks.removeChild(task);
-		});
+//     delet.addEventListener('click', (e) => {
+// 			 tasks.removeChild(task);
+		
 
 
     //  check todo as done
      checkbox.addEventListener('click', (e) => {
-      
-	  tasks.removeChild(task);
       console.log(completedTask);
-      const myTask= document.createElement("div")
-      myTask.classList.add("task","d-flex","justify-content-between","mb-2", "rounded-2", "pe-2", "bg-light");
+
+      const task= document.createElement("div")
+      task.classList.add("task","d-flex","justify-content-between","mb-2", "rounded-2", "pe-2", "bg-light");
 
       const inputDiv= document.createElement("div")
       inputDiv.classList.add("ps-3")
       const textParagraph=document.createElement("p");
       textParagraph.classList.add("pt-2");
       textParagraph.textContent=presentInput;
-      console.log(addInputContent);
+      console.log(textParagraph);
       inputDiv.appendChild(textParagraph);
-        
-      console.log("findings"); 
       console.log(inputDiv);
-      const divDelete = document.createElement("div")
-      const delet = document.createElement("img")
-      delet.src ="images/delete.svg";
-      delet.classList.add("pe-3","pt-2", "delete-but", "hover-overlay")
-      divDelete.appendChild(delet);
+      
+      task.appendChild(inputDiv);
+      console.log(task)
+      todoActions(task)
+      
+    
+    //   myTask.appendChild(myTask);  
 
-      myTask.appendChild(inputDiv);
-      myTask.appendChild(divDelete);  
-
-      completedTask.appendChild(myTask);
+      completedTask.appendChild(task);
       console.log("completed task here")
       console.log(completedTask);
-    //   tasks.removeChild(task);
-    
-  
+      tasks.removeChild(task);
 
+  });  
+    
               
-		});
-        addInputContent.value = "";
-    }
+		// });
+      
+    
 
 
       
@@ -347,3 +319,58 @@ const addInputContent = taskInput.value;
 //     document.querySelector(".popup").style.display = "none";
 //     console.log("heloooooo ldd dkslksldklsks dksdkslkdsldk skldkslkdslksdksldksldksldkslkds dskldksldksldkslkd dkslkdlkdlskdslko")
 // }
+
+
+function switchTab(currentContentId) {
+
+    let tabs = document.getElementsByClassName("tab-pane");
+    for(let i=0; i<tabs.length; i++){
+        if (tabs[i].classList.contains("active")) {
+            tabs[i].classList.remove("active");
+            tabs[i].classList.remove("show");
+        }else{
+            if (tabs[i].getAttribute("id") == currentContentId ) {
+                tabs[i].classList.add("active")
+                tabs[i].classList.add("show")
+            }
+        }
+    }
+}
+
+function switchActiveClass(e){
+     e.preventDefault();
+    let currentContentId = e.target.getAttribute("content-id");
+    
+    let navItems = document.getElementsByClassName("nav-item");
+    for(let i=0; i<navItems.length; i++){
+
+
+        if(navItems[i].getAttribute("content-id") == currentContentId && !navItems[i].classList.contains("active")){
+            navItems[i].classList.add("active");
+             switchTab(currentContentId);
+        }
+        else{
+            navItems[i].classList.remove("active");
+            switchTab(currentContentId);
+        }
+    }
+    
+
+}
+
+
+    
+    // console.log(activeTab);
+    // activeTab.classList.remove("active show");
+    // let PresentTab = document.getElementById(currentContentId);
+    // PresentTab.classList.add("active show")
+    // console.log("creating the new tab");
+    // console.log(newActiveClass);
+    /**
+     * 1-get the content id of this element
+       
+     * 2-remove class active and show from tap-pane
+     * 3-select the new active tap-pane using the content id we got from step1
+     * 4-add active and show class to the element at step3 
+     */
+    
